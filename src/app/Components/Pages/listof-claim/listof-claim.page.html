@@ -1,0 +1,163 @@
+<ion-content class="ion-padding ionBg">
+  <div class="breadcrumb">
+    <span  (click)="pre_pg()"> <i class="fa-solid fa-house home-icon" (click)="pre_pg()"> </i></span> 
+    <!-- <label class="breadcrumb_txt" (click)="pre_pg()" >Track Claim</label> -->
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">List Of Claim</label>
+  </div>
+  <ion-grid>
+    <!-- form INPT Start -->
+    <div class="main_form">
+      <!-- <ion-accordion-group [value]="['one']">
+      <ion-accordion value="one" toggleIcon="caret-down-outline" toggleIconSlot="end"> -->
+      <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;" color="medium">
+        <ion-label>Search Claim</ion-label>
+      </ion-item>
+      <div class="ion-padding bg_card" slot="content">
+        <form action="">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="12">
+                <div class="form_group">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col size="12">
+                        <div class="form_group">
+                          <ion-grid>
+                            <ion-row>
+                              <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                                <label class="lbl_txt">Loss Type :</label>
+                                <div >
+                                  <select class="inpt_txt">
+                                    <option value="A">Bank A</option>
+                                    <option value="B">Bank B</option>
+                                    <option value="C">Bank C</option>
+                                  </select>
+                                </div>
+                              </ion-col>
+                              <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                                <label class="lbl_txt">Start Date :</label>
+                                <div>
+                                  <input class="inpt_txt" type="date" name="dob" id="dob" placeholder="DD-MM-YYYY" />
+                                  <ion-icon name="calendar-outline" class="align_icon single_align_icon-one"></ion-icon>
+                                </div>
+                              </ion-col>
+                              <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                                <label class="lbl_txt">End Date :</label>
+                                <div>
+                                  <input class="inpt_txt" type="date" name="dob" id="dob" placeholder="DD-MM-YYYY" />
+                                  <ion-icon name="calendar-outline" class="align_icon single_align_icon-one"></ion-icon>
+                                </div>
+                              </ion-col>
+                              <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                                <label class="lbl_txt">Product Name :</label>
+                                <div>
+                                  <input class="inpt_txt" type="text" name="" id="" />
+                                </div>
+                              </ion-col>
+                            </ion-row>
+                            <div class="button-container">
+                              <button class="cust_submit_btn">Search</button>
+                            </div>
+                          </ion-grid>
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </div>
+      <!-- </ion-accordion>
+    </ion-accordion-group> -->
+    </div>
+    <!-- form INPT End -->
+
+  </ion-grid>
+  <ion-grid>
+    <div class="policyCardContainer">
+      <div class="policyCard" *ngFor="let item of ClaimsData; let i = index">
+        <div class="main_policy_bx">
+          <div class="d_flex ion-justify-content-between">
+            <div class="header_txt">
+              <span>{{item.MasterPolicy_No}}</span>
+            </div>
+            <div class="icon_con">
+              <div class="circle_con">
+                <div class="second_circle tooltip">
+                  <div class="svg_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+                      <path d="M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z" fill="none"
+                        stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="32" d="M256 176v160M336 256H176" />
+                    </svg>
+                    <span class="tooltiptext">Claim</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="policy_dtls_con ion-padding">
+            <ion-grid>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Claim Number</span>
+                </ion-col>
+                <ion-col>
+                  <span> {{item.Claim_No}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Hospital Name</span>
+                </ion-col>
+                <ion-col>
+                  <span>{{item.Provider_Nm}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Claim Status</span>
+                </ion-col>
+                <ion-col>
+                  <span>{{item.Status_Nm}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Admission Date</span>
+                </ion-col>
+                <ion-col>
+                  <span>{{item.Event_dt}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Product Name</span>
+                </ion-col>
+                <ion-col>
+                  <span> {{item.Product_Nm}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="ion-padding-bottom" size="4">
+                  <span class="text-styled">Claim Amount</span>
+                </ion-col>
+                <ion-col>
+                  <span> {{item.Estimated_Amt}}</span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <div class="ion-padding-bottom  policyCardBtnDiv">
+            <button class="cust_submit_btn" role="button">Claim Letter</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </ion-grid>
+</ion-content>

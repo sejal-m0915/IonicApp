@@ -1,0 +1,308 @@
+<ion-content class="ion-padding ionBg">
+  <!-- Breadcrumb Start -->
+  <div class="breadcrumb">
+    <span (click)="home_page()"><i class="fa-solid fa-house home-icon"></i></span>
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">Policy Details</label>
+  </div>
+  <!-- Breadcrumb End -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="display_card">
+          <ion-card mode="ios" class="card_con_one">
+            <ion-card-header class="card_head">
+              <ion-card-title class="card_title">Personal Details</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="ion-margin-top">
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Insured Name</span>
+                </div>
+                <div class="card_inpt_con">
+                  <input type="text" value={{assuredDetails.InsuredName}} class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Date of Birth</span>
+                </div>
+                <div class="card_inpt_con">
+                  <span class="transpt_inpt"> {{assuredDetails.Dob | date: 'yyyy-MM-dd' }}</span>
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Gender</span>
+                </div>
+                <div class="card_inpt_con">
+                  <input type="text" value={{assuredDetails.Gender}} class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Relation</span>
+                </div>
+                <div class="card_inpt_con">
+                  <input type="text" value={{assuredDetails.Relation}} class="transpt_inpt" />
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+          <ion-card mode="ios" class="card_con_one">
+            <ion-card-header class="card_head">
+              <ion-card-title class="card_title">Policy Details</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="ion-margin-top">
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Policy No</span>
+                </div>
+                <div class="card_inpt_con">
+                  <input type="text" value={{assuredPolicyDetails.Policy_No}} class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>NRIC No./FIN</span>
+                </div>
+                <div class="card_inpt_con">
+                  <input type="text" value={{assuredDetails.NricNo}} class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>Start Date</span>
+                </div>
+                <div class="card_inpt_con">
+                  <span>{{assuredPolicyDetails.Policy_Start_Dt | date: 'yyyy-MM-dd'}}</span>
+                </div>
+              </div>
+              <div class="card_content">
+                <div class="card_label_con">
+                  <span>End Date</span>
+                </div>
+                <div class="card_inpt_con">
+                  <span>{{assuredPolicyDetails.Policy_End_Dt | date: 'yyyy-MM-dd'}}</span>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </div>
+        <div class="activePlans" *ngIf="showActivePlans">
+          <ion-accordion-group [value]="['two']">
+            <ion-accordion value="two" toggleIcon="caret-down-outline" toggleIconSlot="end">
+              <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;"
+                color="medium">
+                <ion-label>Active Plans</ion-label>
+              </ion-item>
+              <div class="ion-padding bg_card" slot="content">
+                <section>
+                  <div class="planCon">
+                    <div *ngFor="let plan of activePlans" class="custom-column pt0">
+                      <div class="column-content">
+                        <div>
+                          <p class="lbl-txt">{{plan.Product_Nm}}</p>
+                          <p class="sub-text">RM {{ plan.Sum_Insured }} </p>
+                          <div style="margin-top: 10px;" class="tooltip">
+                            <button class="cust_update_btn" (click)="selectPlans(plan)">
+                              <img class="arrow_icon" src="../../../../assets/icon/up-down.png" alt="">
+                            </button>
+                            <div class="tool_con">
+                              <span class="tooltiptext">
+                                Upgrade / Downgrade
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <img class="split-lineImg" src="../../../../assets/split-line-card.png" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </ion-accordion>
+          </ion-accordion-group>
+        </div>
+        <div class="selectPlans" *ngIf="showSelectPlans">
+          <div class="main_form">
+            <form [formGroup]="_Activeplans">
+              <ion-accordion-group [value]="['five']">
+                <ion-accordion value="five" toggleIcon="caret-down-outline" toggleIconSlot="end">
+                  <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;"
+                    color="medium">
+                    <ion-label>Select Plan</ion-label>
+                  </ion-item>
+                  <div class="ion-padding bg_card" slot="content">
+                    <div *ngIf="showPremiumBudget">
+                      <section formGroupName="PremiumForm">
+                        <ion-grid>
+                          <ion-row>
+                            <ion-col size="12">
+                              <div class="form_group">
+                                <ion-grid>
+                                  <ion-row class="ion-margin-bottom">
+                                    <ion-col size-md="3" size-sm="12" size-xs="12"
+                                      class="ionColBottomGap ion-margin-end">
+                                      <label class="lbl_txt">Selected Product</label>
+                                      <div>
+                                        <input class="inpt_txt wid_full" type="text" formControlName="Product_Nm"
+                                          [class.disabled]="_Activeplans.disabled"
+                                          [class.disabled]="_Activeplans.get('PremiumForm.Product_Nm')?.disabled ? true : null" />
+                                      </div>
+                                    </ion-col>
+                                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+
+                                      <label class="lbl_txt">Cover Type</label>
+                                      <div>
+                                        <input class="inpt_txt" type="text" formControlName="Cover_Type"
+                                          [class.disabled]="_Activeplans.disabled"
+                                          [class.disabled]="_Activeplans.get('PremiumForm.Cover_Type')?.disabled ? true : null" />
+                                      </div>
+                                    </ion-col>
+                                  </ion-row>
+                                  <!-- Range Picker Start -->
+                                  <ion-row>
+                                    <ion-col size="2">
+                                      <span class="cust-lbl ">Premium budget</span>
+                                    </ion-col>
+                                    <ion-col size="3">
+                                      <div>
+                                        <input class="inpt_txt" type="text" formControlName="Premium" required />
+                                      </div>
+                                    </ion-col>
+                                  </ion-row>
+                                  <div class="ion-padding">
+                                    <ion-range aria-label="Custom range" [pin]="true" [pinFormatter]="pinFormatter"
+                                      [min]="0" [max]="1000" [value]="selectedPremium" [ticks]="true" [snaps]="true"
+                                      mode="md" (ionChange)="sliderChanged($event)"></ion-range>
+                                    <div class="nos_slider">
+                                      <span>0</span>
+                                      <span>100</span>
+                                      <span>200</span>
+                                      <span>300</span>
+                                      <span>400</span>
+                                      <span>500</span>
+                                      <span>600</span>
+                                      <span>700</span>
+                                      <span>800</span>
+                                      <span>900</span>
+                                      <span>1000</span>
+                                    </div>
+                                  </div>
+                                  <!-- Range Picker End -->
+                                  <ion-row>
+                                    <ion-col>
+                                      <span class="cust-lbl ">Sum Assured</span>
+                                    </ion-col>
+                                  </ion-row>
+                                  <ion-row>
+                                    <ion-col>
+                                      <!-- Range Picker Start -->
+                                      <div class="ion-padding">
+                                        <ion-range aria-label="Custom range" [min]="0" [max]="6" [value]="0"
+                                          [ticks]="true" [snaps]="true" mode="md" disabled></ion-range>
+                                        <div class="nos_slider">
+                                          <span>1500</span>
+                                          <span>2000</span>
+                                          <span>3000</span>
+                                          <span>3500</span>
+                                          <span>400</span>
+                                          <span>6000</span>
+                                        </div>
+                                      </div>
+                                      <!-- Range Picker End -->
+                                    </ion-col>
+                                  </ion-row>
+                                </ion-grid>
+                              </div>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-margin-top ion-text-center">
+                            <ion-col size="12">
+                              <button class="editInputSave">Save</button>
+                              <button class="editInputBack" (click)="reset_page()">Back</button>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      </section>
+                    </div>
+                    <div *ngIf="showSelectDropdown">
+                      <section formGroupName="DropdwForm">
+                        <ion-grid>
+                          <ion-row class="ion-margin-bottom">
+                            <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap ion-margin-end">
+                              <label class="lbl_txt">Selected Product</label>
+                              <div>
+                                <input class="inpt_txt wid_full" type="text" formControlName="Product_Nm"
+                                  [class.disabled]="_Activeplans.disabled"
+                                  [class.disabled]="_Activeplans.get('DropdwForm.Product_Nm')?.disabled ? true : null" />
+                              </div>
+                            </ion-col>
+                            <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap ion-margin-end">
+                              <label class="lbl_txt">Cover Type</label>
+                              <div>
+                                <input class="inpt_txt wid_full" type="text" formControlName="Cover_Type"
+                                  [class.disabled]="_Activeplans.disabled"
+                                  [class.disabled]="_Activeplans.get('DropdwForm.Cover_Type')?.disabled ? true : null" />
+                              </div>
+                            </ion-col>
+                            <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                              <label class="lbl_txt">Plan</label>
+                              <div>
+                                <select class="inpt_txt">
+                                  <option value="">--Select Plan--</option>
+                                  <option value="one">Plan 1</option>
+                                  <option value="two">Plan 2</option>
+                                  <option value="three">Plan 3</option>
+                                  <option value="four">Plan 4</option>
+                                  <option value="five">Plan 5</option>
+                                </select>
+                              </div>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row>
+                            <ion-col size="2">
+                              <span class="cust-lbl ">Premium budget</span>
+                            </ion-col>
+                            <ion-col size="3">
+                              <div>
+                                <input class="inpt_txt" type="text" formControlName="Premium" required />
+                              </div>
+                            </ion-col>
+                          </ion-row>
+                          <ion-row class="ion-margin-top ion-text-center">
+                            <ion-col size="12">
+                              <button class="editInputSave">Save</button>
+                              <button class="editInputBack" (click)="reset_page()">Back</button>
+                            </ion-col>
+                          </ion-row>
+                        </ion-grid>
+                      </section>
+                    </div>
+                  </div>
+                </ion-accordion>
+              </ion-accordion-group>
+            </form>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!-- <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col>
+        <ion-accordion-group [value]="['three']">
+          <ion-accordion value="three" toggleIcon="caret-down-outline" toggleIconSlot="end">
+            <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;"
+              color="medium">
+              <ion-label>Pending Plans</ion-label>
+            </ion-item>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>

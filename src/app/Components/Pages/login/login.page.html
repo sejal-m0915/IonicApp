@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+  <div class="loginBody">
+    <img class="loginBgImg" src="../../../../assets/EllipseBlack.png" alt="" />
+    <section class="loginImgSec">
+
+      <img class="loginBannerImg" src="../../../../assets/tuneLogo.png" alt="" />
+    </section>
+    <section class="loginFormSec">
+      <form [formGroup]="LoginForm" novalidate class="main_form_con">
+        <ng-container *ngIf="showlogin">
+          <div class="formCard">
+            <div class="welcome">Welcome</div>
+            <img class="tuneMobileLogo" src="../../../../assets/tuneLogo2.png" alt="">
+            <div class="loginForm">
+              <ion-input class="bgRemove loginInput" type="email" fill="solid" label="Username"
+                labelPlacement="floating" errorText="Invalid Username" [clearInput]="true" placeholder="Enter Username"
+                formControlName="User_Nm"></ion-input>
+
+              <ion-input class="bgRemove loginInput" [type]="passwordVisible ? 'text' : 'password'" fill="solid"
+                label="Password" labelPlacement="floating" errorText="Invalid Password" placeholder="Enter Password"
+                formControlName="Password" (ionFocus)="showPasswordIcon()" (keydown)="ValidationPass($event)">
+              </ion-input>
+
+              <ion-icon class="ion_icon_eye" *ngIf="showPasswordIconFlag"
+                [name]="passwordVisible ? 'eye-off-outline' : 'eye-outline'" (click)="togglePasswordVisibility()">
+              </ion-icon>
+              <br>
+              <ion-button class="darkBlockBtn" color="dark" expand="block" (click)="onSubmit()"
+                id="LoginBtn">Login</ion-button>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="showOtp">
+          <div class="formCard">
+            <div class="otpSec">
+              <div class="welcome">Enter OTP</div>
+              <div class="loginForm">
+
+                <ion-input class="bgRemove loginInput" type="number" fill="solid" label="OTP" labelPlacement="floating"
+                  errorText="Invalid OTP" [clearInput]="true" placeholder="Enter OTP"></ion-input>
+                <p class="otpEmail">OTP has been sent to te*****23@test.com</p>
+
+                <div class="btnInlineCon">
+                  <ion-button class="darkBlockBtn btnInline" color="dark" (click)="BackBtnToggle()">Back</ion-button>
+                  <ion-button class="darkBlockBtn btnInline" color="dark" (click)="login();"
+                    id="LoginBtn">Submit</ion-button>
+                </div>
+
+                <p class="resendOtp">Resent OTP</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </form>
+
+    </section>
+  </div>
+</ion-content>

@@ -1,0 +1,19 @@
+.pnfimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.pnfimg img {
+    width: 30%;
+}
+
+.head_pgnot {
+    margin-bottom: 3%;
+}
+
+.head_pgnot span {
+    font-size: 30px;
+}

@@ -1,0 +1,12 @@
+<ion-content>
+  <div class="my-popup">
+    <div class="header">
+      <ion-icon class="ion_icon" [name]="icon"></ion-icon>
+      {{ header }}
+    </div>
+    <div class="content" [innerHTML]="content"></div>
+    <div class="btn_con">
+      <button class="cust_update_btn" role="button" (click)="closePopup()">Done</button>
+    </div>
+  </div>
+</ion-content>

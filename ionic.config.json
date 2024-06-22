@@ -1,0 +1,7 @@
+{
+  "name": "customerapp-ionic-base",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

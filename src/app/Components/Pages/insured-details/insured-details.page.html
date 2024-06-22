@@ -1,0 +1,93 @@
+<ion-content class="ion-padding ionBg">
+  <!-- BreadCrumb Start -->
+  <div class="breadcrumb">
+    <span (click)="pre_pg()"> <i class="fa-solid fa-house home-icon" (click)="pre_pg()"> </i></span>
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">Insured Details</label>
+  </div>
+  <!-- BreadCrumb End -->
+
+
+  <div class="con_tblcon" *ngIf="loading">
+    <div class="dtTblCon">
+      <table class="row-border hover tuneTbl">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Insured Code</th>
+            <th>Insured Name</th>
+            <th>Relationship</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Nominee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+            <td>
+              <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="con_tblcon" *ngIf="!loading">
+    <div class="dtTblCon" style="margin-top: 20px;">
+      <table *ngIf="policyInsuredData.length > 0" class="row-border hover tuneTbl">
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Insured Code</th>
+            <th>Insured Name</th>
+            <th>Relationship</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <!-- <th>Status</th> -->
+            <th>Nominee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customerPoliciesDetails of policyInsuredData; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{customerPoliciesDetails.PolicyInsured_Id}}</td>
+            <td>{{customerPoliciesDetails.Full_Nm}}</td>
+            <td>{{customerPoliciesDetails.Relation_Nm}}</td>
+            <td>{{customerPoliciesDetails.Dob | date: 'yyyy-MM-dd'}}</td>
+            <td>{{customerPoliciesDetails.gen}}</td>
+            <!-- <td></td> -->
+            <td>
+              <button type="button" class="trackPolicyBtn" (click)="nominee_details(polBtn.value, polBtn1.value)"><i
+                  class="fa fa-share"></i>
+                <input type="button" hidden [value]="customerPoliciesDetails.Policy_Id" #polBtn />
+                <input type="button" hidden [value]="customerPoliciesDetails.PolicyInsured_Id" #polBtn1 />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,453 @@
+.active {
+    background-color: dimgrey;
+}
+
+.tab {
+    overflow: hidden;
+    // border: 1px solid #ccc;
+    background-color: var(--titleBg);
+    color: var(--white);
+    border-radius: 8px 8px 0 0;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 14px;
+    color: var(--var);
+}
+
+.tab button:hover {
+    background-color: #6e6e6e;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    background-color: var(--cardGrey);
+}
+
+.d-block {
+    display: block !important;
+}
+
+.ion_icon {
+    position: absolute;
+    bottom: 0;
+    color: red;
+    width: 100%;
+    right: 0;
+    left: 0;
+    top: -17px;
+}
+
+.icon_con {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    top: 0;
+    width: auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #28282c;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+    margin: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.7rem;
+    top: -131%;
+    left: 19%;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main_profile {
+    padding-top: 0;
+    padding-left: 0;
+}
+
+.errorSpan {
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    display: block;
+}
+
+.dInput {
+    display: flex;
+
+    input {
+        width: auto;
+    }
+
+    span {
+        padding-right: 3%;
+    }
+}
+
+.circle_con {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border-radius: 50%;
+    right: -14px;
+    background-color: var(--background);
+    bottom: -3px;
+}
+
+.svg_icon {
+    position: relative;
+    top: 6px;
+    left: 10px;
+    color: var(--background);
+}
+
+.second_circle {
+    position: relative;
+    top: 5px;
+    left: 4px;
+    background-color: var(--ion-color-primary);
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}
+
+.second_circle:hover {
+    background-color: var(--ion-color-secondary);
+    cursor: pointer;
+
+}
+
+.svg_scale {
+    scale: 1.4;
+}
+
+.edit_icon {
+    font-size: 23px;
+}
+
+.split_line {
+    position: absolute;
+    height: 40px;
+    transform: translate(40px, -29px);
+}
+
+.tablinks {
+    background-image: url('../../../../assets/split-line.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.text-styled {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.custom_txt {
+    font-size: 14px;
+}
+
+.tab_container {
+    margin: 1rem 0;
+}
+
+
+.card_inpt_con {
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.transpt_inpt {
+    background-color: var(--cardGrey);
+    border: 1px solid transparent;
+    pointer-events: none;
+    width: 100%;
+}
+
+.transpt_inpt:focus-visible {
+    border: 1px solid transparent;
+    outline: none;
+}
+
+
+.paymentFlexCon {
+    display: flex;
+    flex-wrap: wrap;
+
+    .paymentSec1 {
+        width: 50%;
+    }
+
+    .paymentSec2 {
+        width: 50%;
+    }
+}
+
+.tabFlex {
+    display: flex;
+}
+
+.tabFlex div:nth-child(1) {
+    width: 35%;
+}
+
+
+.EditableInput {
+    background: #f5f5f5;
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid #6f6b6b;
+    outline: none;
+    width: 50%;
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+}
+
+.EditableInput:focus {
+    background-color: #ffffff;
+
+}
+
+.editInputSave {
+    font-size: 14px;
+    padding: 0.6rem 1.8rem;
+    background: #2b3151;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.editInputCancel {
+    font-size: 14px;
+    padding: 0.6rem 1.8rem;
+    background: #2b3151;
+    border-radius: 5px;
+}
+
+.saveBtnDisplay {
+    display: block;
+}
+
+.dropShow {
+    display: block;
+}
+
+.dropHide {
+    display: none;
+}
+
+.wid_option {
+    width: 25%;
+}
+
+.disabled {
+    background-color: #f0f0f0;
+    color: #808080;
+    cursor: not-allowed;
+    border-top: 1px solid whitesmoke;
+    border-right: 1px solid whitesmoke;
+    border-left: 1px solid whitesmoke;
+}
+
+.disabled-input {
+    background-color: #f0f0f0;
+    color: #808080;
+    cursor: not-allowed;
+}
+
+.red_dot_mandatory {
+    color: var(--ion-color-danger);
+}
+
+.d_none {
+    display: none;
+}
+
+//Media query start
+
+@media only screen and (max-width:1280px) {
+    .tabBtnCon {
+        // overflow-x: scroll;
+        display: flex;
+        // padding-right: 25%;
+        height: 40px;
+        width: max-content;
+    }
+
+    .tab button {
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    .paymentFlexCon {
+        .paymentSec1 {
+            width: 100%;
+        }
+
+        .paymentSec2 {
+            width: 100%;
+        }
+    }
+
+    .ion_icon {
+        top: -15px;
+    }
+
+    .tabFlex {
+        // flex-direction: column;
+    }
+
+    .tabFlex div:nth-child(1) {
+        // width: 100%;
+    }
+}
+
+@media only screen and (max-width: 915px) {
+    .tabBtnCon {
+        // overflow-x: scroll;
+        display: flex;
+        width: max-content;
+    }
+
+    .tab button {
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    .paymentFlexCon {
+        .paymentSec1 {
+            width: 100%;
+        }
+
+        .paymentSec2 {
+            width: 100%;
+        }
+    }
+
+    .tabFlex {
+        flex-direction: row;
+    }
+
+    .tabFlex div:nth-child(1) {
+        width: 35%;
+    }
+
+    .wid_option {
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 428px) {
+    .wid_option {
+        width: 90%;
+    }
+
+    .breadcrumb {
+        margin-left: 15px;
+    }
+
+    .wid_28 {
+        width: 28%;
+    }
+
+    .card_inpt_con {
+        width: min-content;
+    }
+
+    .breadcrumb {
+        margin-bottom: 5px;
+    }
+
+    .main_profile {
+        padding-top: 0;
+        padding-left: 16px;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .main_profile {
+        padding-top: 0;
+        padding-left: 16px;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .main_profile {
+        padding: 1rem;
+    }
+
+    .tabBtnCon {
+        // overflow-x: scroll;
+        display: flex;
+        padding-right: 25%;
+    }
+
+    .tab button {
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    .paymentFlexCon {
+        .paymentSec1 {
+            width: 100%;
+        }
+
+        .paymentSec2 {
+            width: 100%;
+        }
+    }
+
+    .tabFlex {
+        flex-direction: column;
+    }
+
+    .tabFlex div:nth-child(1) {
+        width: 100%;
+    }
+
+    .card_inpt_con {
+        width: auto;
+    }
+
+    .main_profile {
+        padding-top: 0;
+        padding-right: 0;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .card_inpt_con {
+        width: auto;
+    }
+
+    .main_profile {
+        padding-top: 0;
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,55 @@
+<ion-content class="ion-padding">
+  <div class="tab">
+    <button class="tablinks" *ngFor="let tab of tabs" (click)="openTab(tab.id)" [class.active]="currentCity === tab.id">
+      {{ tab.label }}
+      <div class="icon_con">
+        <ion-icon *ngIf="currentCity === tab.id" name="caret-down-outline" class="ion_icon"></ion-icon>
+      </div>
+    </button>
+  </div>
+  <div class="icon_con">
+    <div class="circle_con">
+      <div class="second_circle tooltip">
+        <div class="svg_icon">
+          <ion-icon name="create-outline" class="edit_icon"></ion-icon>
+          <span class="tooltiptext">Edit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngFor="let tab of tabs" [id]="tab.id" class="tabcontent"
+    [style.display]="currentCity === tab.id ? 'block' : 'none'">
+    <ng-container *ngIf="tab.id === 'one'">
+      <div class="card_content">
+        <div class="card_label_con">
+          <span>Policy No one</span>
+        </div>
+        <div class="card_inpt_con">
+          <input type="text" value="BGDP221000006-00-000" class="transpt_inpt" />
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="tab.id === 'two'">
+      <div class="card_content">
+        <div class="card_label_con">
+          <span>Policy No two</span>
+        </div>
+        <div class="card_inpt_con">
+          <input type="text" value="BGDP221000006-00-000" class="transpt_inpt" />
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="tab.id === 'three'">
+      <div class="card_content">
+        <div class="card_label_con">
+          <span>Policy No</span>
+        </div>
+        <div class="card_inpt_con">
+          <input type="text" value="BGDP221000006-00-000" class="transpt_inpt" />
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+</ion-content>

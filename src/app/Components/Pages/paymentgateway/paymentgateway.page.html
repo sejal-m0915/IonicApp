@@ -1,0 +1,210 @@
+<ion-content class="ion-padding  ">
+  <div class="breadcrumb">
+    <label class="breadcrumb_txt">Track Policy</label>
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">Payment Gateway</label>
+  </div>
+  <div class="ion-padding">
+ <div class="tab">
+    <div class="tabBtnCon">
+      <button class="tablinks" *ngFor="let tab of tabs" (click)="openTab(tab.id)"
+      [class.active]="currentActive === tab.id">
+      {{ tab.label }}
+      <div class="icon_con">
+        <ion-icon *ngIf="currentActive === tab.id" name="caret-down-outline" class="ion_icon"></ion-icon>
+      </div>
+    </button>
+    </div>
+  </div>
+  <div *ngFor="let tab of tabs" [id]="tab.id" class="tabcontent"
+    [style.display]="currentActive === tab.id ? 'block' : 'none'">
+    <ng-container *ngIf="tab.id === 'one'">
+      <form action="">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="form_group">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Total Amount:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Number:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Holder Name:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Expire Date:</label>
+                      <div>
+                        <input class="inpt_txt" type="date" name="dob" id="dob" placeholder="DD-MM-YYYY" />
+                       <ion-icon name="calendar-outline" class="align_icon single_align_icon"></ion-icon>
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Security code(CVV):</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <div class="button-container">
+                    <button class="cust_submit_btn">Submit </button>
+                    <button class="cust_submit_btn">Back</button>
+                  </div>
+                </ion-grid>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="tab.id === 'two'">
+      <form action="">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="form_group">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Total Amount:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Number:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Holder Name:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Card Expire Date:</label>
+                      <div>
+                        <input class="inpt_txt" type="date" name="dob" id="dob" placeholder="DD-MM-YYYY" />
+                       <ion-icon name="calendar-outline" class="align_icon  single_align_icon"></ion-icon>
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Security code(CVV):</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <div class="button-container">
+                    <button class="cust_submit_btn">Submit </button>
+                    <button class="cust_submit_btn">Back</button>
+                  </div>
+                </ion-grid>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ng-container>
+    <ng-container *ngIf="tab.id === 'three'">
+      <form action="">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="form_group">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Bank Name:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Branch:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Account Number:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Swift code:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Instrument No:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Instrument Date:</label>
+                      <div>
+                        <input class="inpt_txt" type="date" name="dob" id="dob" placeholder="DD-MM-YYYY" />
+                        <ion-icon name="calendar-outline" class="align_icon single_align_icon"></ion-icon>
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Payment Bank:</label>
+                      <div style="margin-top: 5px;">
+                        <select class="custom-dropdown">
+                          <option value="A">Bank A</option>
+                          <option value="B"> Bank B</option>
+                          <option value="C"> Bank C</option>
+                        </select>
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">GI Code:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">GL Description:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Account Book:</label>
+                      <div>
+                        <input class="inpt_txt" type="text" name="" id="" />
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <div class="button-container">
+                  <button class="cust_submit_btn" role="button">Submit</button>
+                  <button class="cust_submit_btn" role="button">Back</button>
+                  </div>
+                  </ion-grid>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </ng-container>
+  </div>
+</div>
+</ion-content>

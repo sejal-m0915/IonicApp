@@ -1,0 +1,398 @@
+<ion-content class="ion-padding ionBg">
+  <!-- Breadcrumb Start -->
+  <div class="breadcrumb">
+    <span (click)="home_page()"><i class="fa-solid fa-house home-icon"></i></span>
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">Profile</label>
+  </div>
+  <!-- Breadcrumb End -->
+  <div class=" main_profile ion-padding">
+    <div class="tab">
+      <div class="tabBtnCon">
+        <button class="tablinks" *ngFor="let tab of tabs" (click)="openTab(tab.id)"
+          [class.active]="currentActive === tab.id">
+          <div class="icon_con">
+            <ion-icon *ngIf="currentActive === tab.id" name="caret-down-outline" class="ion_icon"></ion-icon>
+          </div>
+          {{ tab.label }}
+        </button>
+      </div>
+    </div>
+    <div class="icon_con">
+      <div class="circle_con" (click)="Edit_form()">
+        <div class="second_circle tooltip">
+          <div class="svg_icon">
+            <ion-icon name="create-outline" class="edit_icon"></ion-icon>
+            <div class="tool_con">
+              <span class="tooltiptext">{{ isEditMode ? 'Edit' : 'Edit' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngFor="let tab of tabs" [id]="tab.id" class="tabcontent bg_card"
+      [style.display]="currentActive === tab.id ? 'block' : 'none'">
+      <form [formGroup]="ProfileForms">
+        <!-- Tab 1 Profile -->
+        <ng-container *ngIf="tab.id === 'one'">
+          <div class="tab_container">
+            <section formGroupName="profile">
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Name">Name</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="First_Nm"
+                    [class.disabled]="ProfileForms.disabled" required name="Name" (keydown)="Text_field($event)" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="NRIC">NRIC</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="NRIC"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('profile.NRIC')!.disabled" required name="NRIC" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Date of Birth">Date of Birth</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Dob"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('profile.Dob')!.disabled" required name="Date of Birth" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Marital_Status">Marital status</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <select class="inpt_txt wid_option" formControlName="Marital_Status"
+                    [class.disabled]="ProfileForms.disabled" required name="Marital status">
+                    <option value="">--Select Marital status--</option>
+                    <option value="M">Married</option>
+                    <option value="S">Single</option>
+                    <option value="D">Divorced</option>
+                    <option value="C">Committed</option>
+                    <option value="W">Widow</option>
+                  </select>
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Gender">Gender</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <select class="inpt_txt wid_option" formControlName="Gender" [class.disabled]="ProfileForms.disabled"
+                    required name="Gender">
+                    <option value="">--Select Gender--</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Nationality">Nationality</span>
+                  <!-- <span class="red_dot_mandatory">*</span> -->
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Nationality"
+                    [class.disabled]="ProfileForms.disabled" (keydown)="Text_field($event)" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <button *ngIf="isEditMode" type="button" class="editInputSave" (click)="onSubmitProfile()">
+                  Save
+                </button>
+                <button *ngIf="isEditMode" type="button" class="editInputCancel" (click)="cancelEdit()">
+                  Cancel
+                </button>
+              </div>
+            </section>
+          </div>
+        </ng-container>
+
+        <!-- Tab 2 Contact -->
+        <ng-container *ngIf="tab.id === 'two'">
+          <div class="tab_container">
+            <section formGroupName="contact">
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Mobile">Mobile</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input class="inpt_txt wid_option" type="text" formControlName="Mobile1"
+                    [class.disabled]="ProfileForms.disabled" required (keydown)="Numb_field($event)" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Email">Email</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input class="inpt_txt wid_option" type="text" formControlName="Email1"
+                    [class.disabled]="ProfileForms.disabled" required />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Address">Address</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input class="inpt_txt wid_option" type="text" formControlName="Address_Line1"
+                    [class.disabled]="ProfileForms.disabled" required />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Postal code">Postal Code</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input #pinZipInput class="inpt_txt wid_option" type="text" formControlName="Pin_Zip"
+                    [class.disabled]="ProfileForms.disabled" [disabled]="loading" (input)="GetPinzip($event);"
+                    (keyup)="GetPinzip($event);" (keydown)="Postal_code($event)" required />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="City">City</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input class="inpt_txt wid_option" type="text" formControlName="City_Nm"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('contact.City_Nm')!.disabled" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="State">State</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input class="inpt_txt wid_option" type="text" formControlName="State_Nm"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('contact.State_Nm')!.disabled" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Country">Country</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Country"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('contact.Country')!.disabled" required name="Country">
+                </div>
+              </div>
+              <div class="tabFlex">
+                <button *ngIf="isEditMode" type="button" class="editInputSave" (click)="onSubmitContact()">
+                  Save
+                </button>
+                <button *ngIf="isEditMode" type="button" class="editInputCancel" (click)="cancelEdit()">
+                  Cancel
+                </button>
+              </div>
+            </section>
+          </div>
+        </ng-container>
+
+        <!-- Tab 3 Bank Details -->
+        <ng-container *ngIf="tab.id === 'three'">
+          <div class="tab_container">
+            <section formGroupName="bank">
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Bank Name">Bank Name</span>
+                  <span class="red_dot_mandatory wid_28">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="hidden" formControlName="Bank_Cd" class="d_none" />
+                  <select class="inpt_txt wid_option" [class.disabled]="ProfileForms.disabled"
+                    (change)="onBankSelect($event)" formControlName="Bank_Nm" required>
+                    <option value="">--Select Bank--</option>
+                    <option *ngFor="let bank of banks" [value]="bank.Bank_Nm">{{bank.Bank_Nm }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Bank Type">Bank Type</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Bank_Type"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('bank.Bank_Type')!.disabled" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Branch Code">Branch Code</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Bank_Branch_Cd"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('bank.Bank_Branch_Cd')!.disabled" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Account Number">Account Number</span>
+                  <span class="red_dot_mandatory">*</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Account_No"
+                    [class.disabled]="ProfileForms.disabled" required (keydown)="Account_field($event)" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled" for="Swift Code">Swift Code</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" class="inpt_txt wid_option" formControlName="Swift_Cd"
+                    [class.disabled]="ProfileForms.disabled"
+                    [class.disabled-input]="ProfileForms.get('bank.Swift_Cd')!.disabled" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <button *ngIf="isEditMode" type="button" class="editInputSave" (click)="onSubmitBank()">
+                  Save
+                </button>
+                <button *ngIf="isEditMode" type="button" class="editInputCancel" (click)="cancelEdit()">
+                  Cancel
+                </button>
+              </div>
+            </section>
+          </div>
+        </ng-container>
+      </form>
+      <!-- Tab 4 Premium Payment -->
+      <!-- <ng-container *ngIf="tab.id === 'four'">
+        <div class="tab_container">
+          <div class="paymentFlexCon">
+            <section class="paymentSec1">
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Payment Method</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="Credit Card" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Payer Details</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="XYZ" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Credit Card No</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="XXXXXXXXXXX4567" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Bank Type</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="N/A" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Bank Name </span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="N/A" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Banch Code</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="N/A" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Account Number</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="N/A" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Swift Code</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="N/A" class="transpt_inpt" />
+                </div>
+              </div>
+            </section>
+
+            <section class="paymentSec2">
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Premium Frequency </span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="Monthly" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled"> Last Due Date</span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="01-11-2023" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Next Due Date </span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="01-12-2023" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Last Premium </span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="33.40" class="transpt_inpt" />
+                </div>
+              </div>
+              <div class="tabFlex">
+                <div>
+                  <span class="text-styled">Next Premium </span>
+                </div>
+                <div class="card_inpt_con ion-padding-bottom">
+                  <input type="text" value="14.30" class="transpt_inpt" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </ng-container> -->
+    </div>
+  </div>
+</ion-content>

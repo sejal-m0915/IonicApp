@@ -1,0 +1,192 @@
+.button-container {
+    text-align: center;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.hide_win {
+    display: none;
+}
+
+.d_flex {
+    display: flex;
+}
+
+.hide_win {
+    display: none;
+}
+
+.d_flex {
+    display: flex;
+}
+
+.main_policy_bx {
+    // border: 1px solid;
+    background-color: var(--cardGrey);
+    box-shadow: rgb(0 0 0 / 25%) 0px 3px 8px;
+}
+
+.header_txt {
+    background-color: var(--titleBg);
+    color: var(--white);
+    width: -webkit-fill-available;
+    padding: 10px;
+    border-radius: 7px 0 0 0;
+    font-size: 14px;
+}
+
+
+.icon_con {
+    position: relative;
+}
+
+.circle_con {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border-radius: 50%;
+    right: -10px;
+    background-color: var(--background);
+    bottom: -6px;
+}
+
+.svg_icon {
+    position: relative;
+    color: var(--background);
+    fill: white;
+}
+
+.second_circle {
+    position: relative;
+    top: 5px;
+    left: 4px;
+    background-color: var(--ion-color-primary);
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}
+
+.second_circle:hover {
+    background-color: var(--ion-color-secondary);
+    cursor: pointer;
+
+}
+
+.svg_scale {
+    scale: 1.4;
+}
+
+.disp_flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.svg_scale {
+    scale: 1.4;
+}
+
+.doc_btn {
+    background-color: var(--ion-color-tertiary) !important;
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 7px;
+}
+
+.text-styled {
+    font-weight: bold;
+}
+
+
+ion-col span {
+    font-size: 13px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #28282c;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: 130%;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.pulse {
+    --hover: #EC5A54;
+}
+
+.pulse:hover,
+.pulse:focus {
+    -webkit-animation: pulse 1s;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 1em transparent;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 var(--hover);
+    }
+}
+
+
+// saif
+
+.policyCardContainer {
+    display: flex;
+    margin: 1rem 0;
+    column-gap: 1.50%;
+    // row-gap: 1.33%;
+    flex-wrap: wrap;
+
+    .policyCard {
+        width: 32%;
+        margin-bottom: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 1440px) {
+    .policyCardContainer {
+        column-gap: 2.33%;
+
+        .policyCard {
+            width: 48%;
+            margin-bottom: 1.2rem;
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .policyCardContainer {
+        .policyCard {
+            width: 100%;
+            margin-bottom: 1.2rem;
+        }
+    }
+}

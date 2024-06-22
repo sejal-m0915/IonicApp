@@ -1,0 +1,879 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+//Global  Variables Start
+
+:root {
+    /** primary **/
+    --ion-color-primary: #ff0000;
+    --ion-color-primary-rgb: 255, 0, 0;
+    --ion-color-primary-contrast: #ffffff;
+    --ion-color-primary-contrast-rgb: 255, 255, 255;
+    --ion-color-primary-shade: #3171e0;
+    --ion-color-primary-tint: #4c8dff;
+
+    /** secondary **/
+    --ion-color-secondary: #ec5a54;
+    --ion-color-secondary-rgb: 236, 90, 84;
+    --ion-color-secondary-contrast: #ffffff;
+    --ion-color-secondary-contrast-rgb: 255, 255, 255;
+    --ion-color-secondary-shade: #36abe0;
+    --ion-color-secondary-tint: #50c8ff;
+
+    /** tertiary **/
+    --ion-color-tertiary: #3d3d3d;
+    --ion-color-tertiary-rgb: 82, 96, 255;
+    --ion-color-tertiary-contrast: #ffffff;
+    --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+    --ion-color-tertiary-shade: #4854e0;
+    --ion-color-tertiary-tint: #6370ff;
+
+    /** success **/
+    --ion-color-success: #2dd36f;
+    --ion-color-success-rgb: 45, 211, 111;
+    --ion-color-success-contrast: #ffffff;
+    --ion-color-success-contrast-rgb: 255, 255, 255;
+    --ion-color-success-shade: #28ba62;
+    --ion-color-success-tint: #42d77d;
+
+    /** warning **/
+    --ion-color-warning: #ffc409;
+    --ion-color-warning-rgb: 255, 196, 9;
+    --ion-color-warning-contrast: #000000;
+    --ion-color-warning-contrast-rgb: 0, 0, 0;
+    --ion-color-warning-shade: #e0ac08;
+    --ion-color-warning-tint: #ffca22;
+
+    /** danger **/
+    --ion-color-danger: #eb445a;
+    --ion-color-danger-rgb: 235, 68, 90;
+    --ion-color-danger-contrast: #ffffff;
+    --ion-color-danger-contrast-rgb: 255, 255, 255;
+    --ion-color-danger-shade: #cf3c4f;
+    --ion-color-danger-tint: #ed576b;
+
+    /** dark **/
+    --ion-color-dark: #2b3151;
+    --ion-color-dark-rgb: 43, 49, 81;
+    --ion-color-dark-contrast: #ffffff;
+    --ion-color-dark-contrast-rgb: 255, 255, 255;
+    --ion-color-dark-shade: #1e2023;
+    --ion-color-dark-tint: #383a3e;
+
+    /** medium **/
+    --ion-color-medium: #28282c;
+    --ion-color-medium-rgb: 62, 63, 69;
+    --ion-color-medium-contrast: #ffffff;
+    --ion-color-medium-contrast-rgb: 255, 255, 255;
+    --ion-color-medium-shade: #808289;
+    --ion-color-medium-tint: #9d9fa6;
+
+    /** light **/
+    --ion-color-light: #f3f3f3;
+    --ion-color-light-rgb: 243, 243, 243;
+    --ion-color-light-contrast: #000000;
+    --ion-color-light-contrast-rgb: 0, 0, 0;
+    --ion-color-light-shade: #d7d8da;
+    --ion-color-light-tint: #f5f6f9;
+
+    --white: #fff;
+    --green: #5fc7c3;
+    --titleBg: #28282c;
+    --cardGrey: #f5f5f5;
+
+    /** Custom **/
+
+    --primary-Red: #ff0000;
+    --primary-LightRed: #ec5a54;
+    --primary-White: #ffffff;
+    --primary-Black: #000000;
+    --primary-Light-grey: #f3f3f3;
+    --primary-Grey: #3e3f45;
+    --primary-Grey-hover: #6c6c70;
+    --primary-Grey-shadow: #cfcfcf;
+    --primary-Dark-Grey: #2b3151;
+    --primary-Green: #5fc7c3;
+    --primary-shadow-dark-Grey: #d7deff;
+    --primary-hover-dark-grey: #505a8d;
+}
+
+.custom-modal {
+    --width: 500px;
+    --height: 320px;
+    --border-radius: 8px;
+}
+
+//Global  Variables End
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+}
+
+#DataTables_Table_0_wrapper {
+
+    .dataTables_length,
+    .dataTables_filter {
+        margin-bottom: 0.8rem;
+    }
+}
+
+.dataTables_length {
+    margin-bottom: 0.8rem;
+}
+
+.bodyMargin {
+    margin: 0.8rem 0 0.8rem 1rem;
+}
+
+//Tooltip CSS start
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: #28282c;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+    margin: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.7rem;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tool_con {
+    display: flex;
+    justify-content: center;
+}
+
+.tooltip_ {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip_ .tooltiptext {
+    visibility: hidden;
+    background-color: var(--primary-LightRed);
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+    margin: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    top: -25%;
+    left: 90%;
+    font-weight: 600;
+}
+
+.tooltip_:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.changepass_tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.changepass_tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: var(--primary-LightRed);
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    width: max-content;
+    margin: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    top: -25%;
+    left: 90%;
+    font-weight: 600;
+}
+
+.changepass_tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+//Tooltip CSS End
+
+// Breadcrumb css
+.breadcrumb {
+    margin-bottom: 20px;
+    margin-left: 0px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--primary-LightRed);
+    color: white;
+}
+
+.breadcrumb_txt {
+    font-size: 13.5px;
+    margin: 0 15px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.home-icon {
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.arrow_icon {
+    vertical-align: middle;
+}
+
+.ionBg {
+    --background: #f4f7fa;
+}
+
+.dtTblCon {
+    overflow: auto;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    border-radius: 50%;
+    padding: 4px 8px;
+    text-align: center;
+}
+
+table.tuneTbl {
+    width: 100%;
+    text-align: left;
+    border-radius: 5px;
+
+    th,
+    td {
+        border: 1px solid var(--white);
+        border-collapse: collapse;
+        padding: 0.5rem;
+    }
+
+    td {
+        border: 1px solid var(--white);
+    }
+
+    td:nth-child(1) {
+        border-left: none;
+    }
+
+    td:nth-last-child(1) {
+        border-right: none;
+    }
+}
+
+
+
+table.tuneTbl>thead>tr>th:nth-child(1) {
+    border-top-left-radius: 5px;
+}
+
+table.tuneTbl>thead>tr>th:nth-last-child(1) {
+    border-top-right-radius: 5px;
+}
+
+::-webkit-scrollbar {
+    width: 0.2em;
+    height: 0.2rem;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 25px;
+    box-shadow: inset 0 0 6px var(--ion-color-tertiary-shade);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--ion-color-secondary);
+    outline: 1px solid var(--ion-color-danger);
+    border-radius: 25px;
+}
+
+//accordion css start
+ion-accordion {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+//accordion css end
+
+//Custom btn css start
+.cust_update_btn {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: var(--primary-Dark-Grey);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 7px 45px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.cust_update_btn:hover {
+    background-color: var(--primary-hover-dark-grey);
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+
+.cust_update_btn:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+
+.cust_update_btn:hover {
+    box-shadow: var(--primary-shadow-dark-Grey) 0 6px 12px;
+}
+
+.cust_submit_btn {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: var(--primary-Grey);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 7px 45px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    margin: 5px;
+}
+
+.cust_submit_btn:hover {
+    background-color: var(--primary-Grey-hover);
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+
+.cust_submit_btn:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+
+.cust_submit_btn:hover {
+    box-shadow: var(--primary-Grey-shadow) 0 6px 12px;
+}
+
+.cust_back_btn {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: var(--primary-Grey);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 7px 45px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    margin: 5px;
+}
+
+.cust_back_btn:hover {
+    background-color: var(--primary-Grey-hover);
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+
+.cust_back_btn:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+
+.cust_back_btn:hover {
+    box-shadow: var(--primary-Grey-shadow) 0 6px 12px;
+}
+
+//Custom btn css end
+
+
+// Range picker CSS start
+ion-range::part(tick) {
+    background: #808080;
+}
+
+ion-range::part(tick-active) {
+    background: #808080;
+}
+
+ion-range::part(pin) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #28282c;
+    border-radius: 50%;
+    transform: scale(1.01);
+    top: -20px;
+    min-width: 28px;
+    height: 28px;
+    transition: transform 120ms ease, background 120ms ease;
+}
+
+ion-range::part(pin)::before {
+    content: none;
+}
+
+ion-range::part(knob) {
+    background: #EC5A54;
+}
+
+ion-range::part(bar) {
+    background: #808080;
+}
+
+ion-range::part(bar-active) {
+    background: #414141;
+}
+
+.nos_slider {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 101%;
+}
+
+.range-bar-container {
+    height: 20px;
+}
+
+// Range picker CSS End
+
+//Input form CSS Start 
+.lbl_txt {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.inpt_txt {
+    background-color: white;
+    border: 1px solid #D9D9D9;
+    padding: 7px 4px;
+    border-radius: 2px;
+    margin-top: 1%;
+    font-size: 14px;
+    width: 86%;
+    outline: none;
+    font-size: 12px;
+}
+
+.searchable_inpt {
+    background-color: white;
+    border: 1px solid #D9D9D9;
+    padding: 7px 4px;
+    border-radius: 2px;
+    margin-top: 1%;
+    outline: none;
+    height: 34px;
+    font-size: 12px;
+}
+
+.searchable_inpt1 {
+    width: 35%;
+    font-size: 12px;
+}
+
+.searchable_inpt2 {
+    width: 48%;
+}
+
+.searchable_inpt:nth-child(2) {
+    margin-left: 0.6rem;
+}
+
+.align_icon {
+    position: relative;
+    visibility: visible;
+    pointer-events: none;
+    border: none;
+    background: transparent;
+}
+
+.single_align_icon {
+    right: 7%;
+    top: 0.1em;
+    cursor: pointer;
+
+}
+
+// .double_align_icon {
+//     border: 1px solid #d9d9d9;
+//     border-left: none;
+//     height: 22px;
+//     padding: 4px 7px;
+//     position: absolute;
+//     top: 21px;
+//     cursor: pointer;
+// }
+
+.bg_card {
+    background-color: var(--cardGrey);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 3px 8px;
+    border-radius: 0 0 8px 8px;
+}
+
+.inpt_btm {
+    margin-bottom: 15px;
+}
+
+//Input form CSS End
+
+// Input checkbox Start 
+.inpt_checkbox {
+    position: relative;
+    bottom: -6px;
+    left: 60px;
+}
+
+.inpt_checkbox {
+    --primary-color: #2b3151;
+    --secondary-color: #fff;
+    --primary-hover-color: #2b3151;
+    --checkbox-diameter: 20px;
+    --checkbox-border-radius: 3px;
+    --checkbox-border-color: #d9d9d9;
+    --checkbox-border-width: 1px;
+    --checkbox-border-style: solid;
+    --checkmark-size: 1.2;
+}
+
+.inpt_checkbox,
+.inpt_checkbox *,
+.inpt_checkbox *::before,
+.inpt_checkbox *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.inpt_checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--checkbox-diameter);
+    height: var(--checkbox-diameter);
+    border-radius: var(--checkbox-border-radius);
+    background: var(--secondary-color);
+    border: var(--checkbox-border-width) var(--checkbox-border-style) var(--checkbox-border-color);
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    top: 26px;
+}
+
+.inpt_checkbox::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+    box-shadow: 0 0 0 calc(var(--checkbox-diameter) / 2.5) var(--primary-color);
+    border-radius: inherit;
+    opacity: 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    -o-transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+    transition: all 0.5s cubic-bezier(0.12, 0.4, 0.29, 1.46);
+}
+
+.inpt_checkbox::before {
+    top: 40%;
+    left: 50%;
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 7px;
+    border-right: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    -ms-transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+    opacity: 0;
+    -webkit-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+    -o-transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+    transition: all 0.1s cubic-bezier(0.71, -0.46, 0.88, 0.6), opacity 0.1s;
+}
+
+.inpt_checkbox:hover {
+    border-color: var(--primary-color);
+}
+
+.inpt_checkbox:checked {
+    background: var(--primary-color);
+    border-color: transparent;
+}
+
+.inpt_checkbox:checked::before {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    -ms-transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    transform: translate(-50%, -50%) rotate(45deg) scale(var(--checkmark-size));
+    -webkit-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    -o-transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+    transition: all 0.2s cubic-bezier(0.12, 0.4, 0.29, 1.46) 0.1s;
+}
+
+.inpt_checkbox:active:not(:checked)::after {
+    -webkit-transition: none;
+    -o-transition: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition: none;
+    opacity: 1;
+}
+
+// Input checkbox End
+
+.ionColBottomGap {
+    margin-bottom: 0.8rem;
+    height: 55px;
+}
+
+.policyCardBtnDiv {
+    padding-left: 1.8%;
+}
+
+
+.red_dot_mandatory {
+    color: var(--ion-color-danger);
+}
+
+//media queries start here
+
+
+
+@media only screen and (max-width: 1366px) {
+    .single_align_icon {
+        right: 9%;
+    }
+
+    // .double_align_icon {
+    //     right: 14%;
+    // }
+
+    // .searchable_inpt2 {
+    //     width: 47%;
+    // }
+
+    table.tuneTbl th,
+    table.tuneTbl td {
+        font-size: 14px;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .searchable_inpt2 {
+        width: 56%;
+    }
+
+    .single_align_icon {
+        right: 12%;
+    }
+
+    // .double_align_icon {
+    //     right: 13%;
+    //     top: 20px;
+    // }
+}
+
+
+@media only screen and (max-width:768px) {
+
+    .bodyMargin {
+        margin: 0.8rem 0 0.8rem 1rem;
+    }
+
+    .inpt_txt {
+        width: 100%;
+    }
+
+    .searchable_inpt1 {
+        width: 30%;
+    }
+
+    .searchable_inpt2 {
+        width: 68%;
+    }
+
+    // .searchable_inpt2 {
+    //     width: 57%;
+    // }
+
+    .single_align_icon {
+        right: -94%;
+        top: -1.6rem;
+
+    }
+
+    // .double_align_icon {
+    //     right: 1px;
+    //     top: 21px;
+    // }
+
+    .dataTables_wrapper .dataTables_paginate {
+        margin-bottom: 0.5em;
+    }
+
+    .cust_submit_btn {
+        padding: 7px 16px;
+    }
+
+    .inpt_checkbox {
+        top: 10px;
+    }
+}
+
+@media only screen and (max-width:480px) {
+    .searchable_inpt2 {
+        width: 65%;
+    }
+
+    .single_align_icon {
+        right: -90%;
+    }
+
+    // .double_align_icon {
+    //     right: 0%;
+    //     top: 20px;
+    // }
+
+}
+
+@media only screen and (max-width:375px) {
+    .searchable_inpt2 {
+        width: 64%;
+    }
+
+    .single_align_icon {
+        right: -86%;
+    }
+
+    .inpt_checkbox {
+        top: 10px;
+    }
+}
+
+@media only screen and (max-width:360px) {
+    .searchable_inpt2 {
+        width: 64%;
+    }
+
+    .single_align_icon {
+        right: -86%;
+        top: -1.6rem;
+    }
+
+}

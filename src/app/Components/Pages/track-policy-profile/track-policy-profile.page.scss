@@ -1,0 +1,133 @@
+.breadcrumb {
+    margin-bottom: 35px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--primary-LightRed);
+    color: white;
+}
+
+.custom-text {
+    font-size: 14px;
+}
+
+.breadcrumb_txt {
+    font-size: 13px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.display_card {
+    display: flex;
+    // gap: 65px;
+    flex-wrap: wrap;
+    column-gap: 2.33%;
+}
+
+.card_con_one {
+    flex-grow: 1;
+    margin-bottom: 1.2rem;
+}
+
+.card_head {
+    background-color: var(--titleBg);
+    padding: 15px;
+}
+
+.card_title {
+    color: var(--white);
+    font-size: 15px;
+}
+
+.card_content {
+    padding-top: 4px;
+    display: flex;
+    font-size: .9rem;
+}
+
+.card_label_con {
+    width: 35%;
+
+    span {
+        color: #28282c;
+        font-weight: bold;
+    }
+}
+
+.card_inpt_con input {
+    color: var(--primary-Black);
+}
+
+.transpt_inpt {
+    background-color: var(--white);
+    border: 1px solid transparent;
+    pointer-events: none;
+}
+
+.transpt_inpt:focus-visible {
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.custom-dropdown {
+    width: 88%;
+    border: 1px solid #ccc;
+    height: 32px;
+    background: #fff;
+}
+
+.cust-lbl {
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.nos_slider {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    width: 101%;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .card_con_one {
+        width: 100%;
+        margin-bottom: 1.2rem;
+    }
+
+    .card_content {
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+    .custom-dropdown {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width:425px) {
+    .newClose-btn {
+        margin-left: 4px;
+    }
+
+    .breadcrumb_txt {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .newClose-btn {
+        margin-left: 4px;
+    }
+
+    .breadcrumb_txt {
+        font-size: 12px;
+        margin: 0 7px;
+    }
+
+    .arrow_icon {
+        height: 11px;
+    }
+}

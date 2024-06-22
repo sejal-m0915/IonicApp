@@ -1,0 +1,241 @@
+.button-container {
+  /* text-align: center; */
+  justify-content: space-between;
+  margin: 10px -5px;
+}
+
+.hide_win {
+  display: none;
+}
+
+.d_flex {
+  display: flex;
+}
+
+.main_policy_bx {
+  background-color: var(--cardGrey);
+  box-shadow: rgb(0 0 0 / 25%) 0px 3px 8px;
+  border-radius: 0 0 8px 8px;
+}
+
+.header_txt {
+  background-color: var(--titleBg);
+  color: var(--white);
+  width: -webkit-fill-available;
+  padding: 10px;
+  border-radius: 7px 0 0 0;
+}
+
+.icon_con {
+  position: relative;
+}
+
+.circle_con {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  border-radius: 50%;
+  right: -16px;
+  background-color: var(--background);
+  bottom: -6px;
+}
+
+.svg_icon {
+  position: relative;
+  color: var(--background);
+}
+.single_align_icon-one{
+
+  right: 6%;
+  top: 0.3em;
+  cursor: pointer;
+  margin-left: 0px
+}
+.custom-dropdown {
+  width: 88%;
+  border: 1px solid #ccc;
+  height: 34px;
+  background: #fff;
+}
+
+.second_circle {
+  position: relative;
+  top: 5px;
+  left: 4px;
+  background-color: var(--primary-LightRed);
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+}
+
+.second_circle:hover {
+  background-color: var(--ion-color-secondary);
+  cursor: pointer;
+}
+
+.svg_scale {
+  scale: 1.4;
+}
+
+.doc_btn {
+  background-color: var(--ion-color-tertiary) !important;
+  padding: 13px;
+  font-size: 15px;
+  border-radius: 7px;
+}
+
+.text-styled {
+  font-weight: bold;
+}
+
+.policy_dtls_con {
+  height: 15rem;
+}
+
+ion-col span {
+  font-size: 13px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: #28282c;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 130%;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.pulse {
+  --hover: #ec5a54;
+}
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s;
+  box-shadow: 0 0 0 1em transparent;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+.policyCardContainer {
+  display: flex;
+  margin: 2rem 0;
+  column-gap: 1.5%;
+  // row-gap: 1.33%;
+  flex-wrap: wrap;
+
+  .policyCard {
+    width: 32%;
+    margin-bottom: 1.2rem;
+  }
+}
+.home-icon{
+  font-size: 16px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1440px) {
+  .policyCardContainer {
+    column-gap: 2.33%;
+
+    .policyCard {
+      width: 48%;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+@media only screen and (max-width: 926px) {
+  .single_align_icon-one{
+    right: -93%;
+    top: -1.6em;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 2px;
+    font-size: 17px;
+  }
+
+}
+@media only screen and (max-width: 768px) {
+  .policyCardContainer {
+    .policyCard {
+      width: 100%;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+@media only screen and (max-width:428px) {
+  .single_align_icon-one{
+    right: -93%;
+    top: -1.7em;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 2px;
+    font-size: 17px;
+  }
+
+}
+@media only screen and (max-width:390px) {
+  .single_align_icon-one{
+    right: -92%;
+    top: -1.6em;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 2px;
+    font-size: 17px;
+  }
+
+}
+
+@media only screen and (max-width:360px) {
+ .main_policy_bx {
+         height: 399px;
+         width: 287px;
+     }
+     .policyCardBtnDiv {
+      padding-left: 1.8%;
+      padding-top: 20px;
+
+  }
+  .single_align_icon-one{
+    right: -91%;
+    top: -1.6em;
+    cursor: pointer;
+    margin-left: 0px;
+    margin-top: 2px;
+    font-size: 17px;
+  }
+
+}
+

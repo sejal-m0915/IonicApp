@@ -1,0 +1,307 @@
+<ion-content class="ion-padding ionBg">
+  <!-- BreadCrumb Start -->
+  <div class="breadcrumb">
+    <span (click)="pre_pg()"> <i class="fa-solid fa-house home-icon" (click)="pre_pg()"> </i></span>
+    <!-- <label class="breadcrumb_txt">Track Policy</label> -->
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt" (click)=" next_pg()">Insured Details</label>
+    <img class="arrow_icon" src="../../../../assets/icon/ion-arrow.png" alt="">
+    <label class="breadcrumb_txt">Nominee</label>
+  </div>
+  <!-- BreadCrumb End -->
+
+  <ion-grid>
+    <div class="main_form">
+      <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;" color="medium">
+        <ion-label>Nominee</ion-label>
+      </ion-item>
+      <div class="ion-padding bg_card" slot="content">
+        <div class="form_group">
+          <form [formGroup]="NomineeForm" (ngSubmit)="PostClient()">
+            <ion-grid>
+              <ion-row>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Nominee Name:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <!-- <input class="searchable_inpt searchable_inpt1" type="text" name="Nominee_Cd"
+                      formControlName="Nominee_Cd" maxlength="10" (keydown)="Numb_field($event)" /> -->
+                    <input class="inpt_txt" type="text" name="Nominee_Nm" formControlName="Nominee_Nm" required
+                      (keydown)="Text_field($event)" />
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Nominee Relationship:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <select class="inpt_txt" name="NomineeRelation_Cd" formControlName="NomineeRelation_Cd" required>
+                      <option value="">--Select--</option>
+                      <option value="R002">Son</option>
+                      <option value="R003">Spouse</option>
+                      <option value="R005">Mother</option>
+                      <option value="R006">Father</option>
+                      <option value="R007">Daughter</option>
+                    </select>
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Share:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <input class="inpt_txt" type="text" name="Share" formControlName="Share" required
+                      (keydown)="DecimalField($event)" />
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Email Id:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <input class="inpt_txt" type="email" name="Email1" formControlName="Email1" required />
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Contact No:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <input class="inpt_txt" type="text" name="Mobile1" formControlName="Mobile1"
+                      (keydown)="Numb_field($event)" required />
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Id No:</label>
+                  <span class="red_dot_mandatory">*</span>
+                  <div>
+                    <input class="inpt_txt" type="text" name="UID" formControlName="UID" required
+                      placeholder="YYMMDD-XX-XXXX" maxlength="14" (keydown)="UID_field($event)">
+                    <!-- <div class="error_message" *ngIf="errorMessage">{{ errorMessage }}</div> -->
+                  </div>
+                </ion-col>
+                <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                  <label class="lbl_txt">Minor:</label>
+                  <input type="checkbox" formControlName="Minor_Ind" class="inpt_checkbox" />
+                </ion-col>
+              </ion-row>
+              <ion-row class="disp_flex">
+                <button type="submit" class="cust_submit_btn" *ngIf="!isEditMode">Add</button>
+                <div *ngIf="isEditMode">
+                  <button type="button" class="cust_submit_btn" (click)="Save_nominee()">Save</button>
+                  <button type="reset" class="cust_submit_btn" (click)="Form_refresh()">Refresh</button>
+                </div>
+              </ion-row>
+            </ion-grid>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ion-grid>
+
+  <div *ngIf="!loaded || (nomineeData && nomineeData.length > 0)">
+    <div class="con_tblcon" *ngIf="nomineeData && nomineeData.length > 0">
+      <div class="dtTblCon" style="margin-top: 17px; padding: 16px;">
+        <table class="row-border hover tuneTbl" datatable>
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Nominee Name</th>
+              <th>DOB</th>
+              <th>Nominee Relationship</th>
+              <th>Email id</th>
+              <th>Contact No</th>
+              <th>Id No</th>
+              <th>Share</th>
+              <th class="d_none"></th>
+              <th class="d_none"></th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody *ngIf="nomineeData && nomineeData.length > 0">
+            <tr *ngFor="let nominee of nomineeData; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ nominee.Nominee_Nm }}</td>
+              <td>{{ nominee.Dob | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ getRelationName(nominee.NomineeRelation_Cd) }}</td>
+              <td>{{ nominee.Email1 }}</td>
+              <td>{{ nominee.Mobile1 }}</td>
+              <td>{{ nominee.UID }}</td>
+              <td class="d_none">{{ nominee.Nominee_cd }}</td>
+              <td class="d_none">{{ nominee.Minor_Ind }}</td>
+              <td>{{ nominee.Share }}</td>
+              <td>
+                <span class="icon-wrapper" (click)="Delete_nominee(nominee)"><i class="fa fa-trash"
+                    aria-hidden="true"></i></span>
+                <span class="icon-wrapper" (click)="Edit_nominee(nominee)"><i class="fas fa-edit"></i></span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="!nomineeData || nomineeData.length === 0">
+            <tr>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-Nominee">
+    <ion-item class="ion_item" slot="header" style=" --color: #fff; --border-radius:8px 8px 0 0;" color="medium">
+      <ion-label>Trustee</ion-label>
+    </ion-item>
+    <div class="ion-padding bg_card" slot="content">
+      <form [formGroup]="TrustyForm" (ngSubmit)="PostClient_trusty()">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <div class="form_group">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Trusty Name:</label>
+                      <span class="red_dot_mandatory">*</span>
+                      <div>
+                        <!-- <input class="searchable_inpt searchable_inpt1" type="text" formControlName="TrustyCd"
+                          (keydown)="Numb_field($event)" /> -->
+                        <input class="inpt_txt" type="text" formControlName="Trusty_Nm" (keydown)="Text_field($event)"
+                          required />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Email Id:</label>
+                      <span class="red_dot_mandatory">*</span>
+                      <div>
+                        <input class="inpt_txt" type="email" formControlName="TrustyEmail" required />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Contact No:</label>
+                      <span class="red_dot_mandatory">*</span>
+                      <div>
+                        <input class="inpt_txt" type="text" formControlName="TrustyMobile"
+                          (keydown)="Numb_field($event)" required />
+                      </div>
+                    </ion-col>
+                    <ion-col size-md="3" size-sm="12" size-xs="12" class="ionColBottomGap">
+                      <label class="lbl_txt">Id No:</label>
+                      <span class="red_dot_mandatory">*</span>
+                      <div>
+                        <input class="inpt_txt" type="text" formControlName="TrustyUID" placeholder="YYMMDD-XX-XXXX"
+                          (keydown)="UID_field($event)" required />
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row class="disp_flex">
+                    <button type="submit" class="cust_submit_btn" *ngIf="!isEditModeTrust">Add</button>
+                    <div *ngIf="isEditModeTrust">
+                      <button type="button" class="cust_submit_btn" (click)="Save_trusty()">Save</button>
+                      <button type="reset" class="cust_submit_btn" (click)="Trusty_refresh()">Refresh</button>
+                    </div>
+                  </ion-row>
+                </ion-grid>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+  </div>
+
+  <div class="con_tblcon">
+    <div class="dtTblCon" style="margin-top: 17px; padding: 16px;"
+      *ngIf="policyTrustyData && policyTrustyData.length > 0">
+      <table class="row-border hover tuneTbl" datatable>
+        <thead>
+          <tr>
+            <th>Sr No</th>
+            <th>Trusty Name</th>
+            <th>Email Id</th>
+            <th>Contact No</th>
+            <th>Id No</th>
+            <th class="d_none"></th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngIf="policyTrustyData.length > 0; else skeletonBlock">
+            <tr *ngFor="let trusty of policyTrustyData; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{trusty.Trusty_nm}}</td>
+              <td>{{trusty.Email1}}</td>
+              <td>{{trusty.Mobile1}}</td>
+              <td class="d_none">{{trusty.Trusty_Cd}}</td>
+              <td>{{trusty.UID}}</td>
+              <td>
+                <span class="icon-wrapper" (click)="Delete_trusty(trusty)"><i class="fa fa-trash"
+                    aria-hidden="true"></i></span>
+                <span class="icon-wrapper" (click)="Edit_trusty(trusty)"><i class="fas fa-edit"></i></span>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+      <ng-template #skeletonBlock>
+        <!-- Ionic skeleton Loader Start -->
+        <table class="row-border hover tuneTbl">
+          <thead>
+            <tr>
+              <th>Sr No</th>
+              <th>Trusty Name</th>
+              <th>Email Id</th>
+              <th>Contact No</th>
+              <th>Id No</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+              <td>
+                <ion-skeleton-text [animated]="true" style="height: 17px;"></ion-skeleton-text>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,151 @@
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: var(--titleBg);
+    color: var(--white);
+    border-radius: 8px 8px 0 0;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+    color: var(--var);
+}
+
+.tab button:hover {
+    background-color: #6e6e6e;
+}
+
+.tab button.active {
+    background-color: #474747;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border-top: none;
+    background-color: var(--cardGrey);
+}
+
+.d-block {
+    display: block !important;
+}
+
+.card_content {
+    padding-top: 4px;
+    display: flex;
+    margin: 10px;
+}
+
+.card_label_con {
+    width: 20%;
+}
+
+.card_inpt_con {
+    flex-grow: 1;
+}
+
+.transpt_inpt {
+    background-color: var(--cardGrey);
+    border: 1px solid transparent;
+}
+
+.transpt_inpt:focus-visible {
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.ion_icon {
+    position: absolute;
+    bottom: 19px;
+    color: red;
+    width: 100%;
+    right: 0;
+    left: 0;
+}
+
+.icon_con {
+    position: relative;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    display: block;
+    background-color: #28282c;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: relative;
+    right: 0 !important;
+    top: -50px;
+    bottom: 0;
+    left: -29px !important;
+    z-index: 1;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    border: 1px solid #767676;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.icon_con {
+    position: relative;
+}
+
+.circle_con {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    border-radius: 50%;
+    right: -18px;
+    background-color: var(--background);
+    bottom: -1px;
+}
+
+.svg_icon {
+    position: relative;
+    top: 7px;
+    left: 11px;
+    color: var(--background);
+    width: min-content;
+}
+
+.second_circle {
+    position: relative;
+    top: 5px;
+    left: 4px;
+    background-color: var(--ion-color-primary);
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+}
+
+.second_circle:hover {
+    background-color: var(--ion-color-secondary);
+    cursor: pointer;
+
+}
+
+.edit_icon {
+    font-size: 23px;
+}

@@ -1,0 +1,126 @@
+.disp_flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tuneTbl {
+    thead {
+        background: #28282c;
+        color: #fff;
+    }
+
+    tbody {
+        background: #f5f5f5;
+    }
+}
+
+.con_tblcon {
+    transition: 2s;
+}
+
+.search-Nominee {
+    padding-top: 2%;
+}
+
+
+.icon-wrapper {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+
+.ion_icon {
+    position: absolute;
+    bottom: 19px;
+    color: red;
+    width: 100%;
+    right: 0;
+    left: 0;
+}
+
+.icon_con {
+    position: relative;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 100px;
+    background-color: #28282c;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 130%;
+    left: 130%;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100% !important;
+    transition: 0.4s;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.error_message {
+    font-size: 11px;
+    color: red;
+    position: relative;
+    background-color: white;
+    left: -14px;
+    padding: 5px;
+    text-align: center;
+    text-transform: capitalize;
+    z-index: 99;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.no-data-message {
+    text-align: center;
+}
+
+.d_none {
+    display: none;
+}
+
+input[formControlName="Nominee_Cd"][disabled],
+input[formControlName="UID"][disabled],
+input[formControlName="TrustyUID"][disabled],
+input[formControlName="TrustyCd"][disabled] {
+    background-color: #f0f0f0;
+    color: #808080;
+    cursor: not-allowed;
+}
+
+.home-icon {
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}

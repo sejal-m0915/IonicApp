@@ -1,0 +1,18 @@
+<ion-content>
+  <div id="CLoader">
+    <div class="CLBody">
+      <div class="CLContent">
+        <span class="loader"></span>
+      </div>
+    </div>
+  </div>
+  <div class="BodyContent">
+    <app-left-menu (onToggleSideNav)="onToggleSideNav($event)"></app-left-menu>
+
+    <section class="MainContent">
+      <ion-router-outlet id="MasterBodyRouter">
+        <app-body [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-body>
+      </ion-router-outlet>
+    </section>
+  </div>
+</ion-content>

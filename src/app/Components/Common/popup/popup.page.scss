@@ -1,0 +1,140 @@
+ion-modal::part(content) {
+    height: 300px;
+    border-radius: 8px;
+}
+
+.header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    background-color: #2B3151;
+    color: white;
+    text-align: center;
+    padding: 15px 5px;
+    position: relative;
+}
+
+.content {
+    margin-bottom: 16px;
+    padding: 10px 30px;
+    height: 22vh;
+}
+
+.btn_con {
+    display: flex;
+    justify-content: center;
+}
+
+.cust_update_btn {
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: var(--primary-Dark-Grey);
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: var(--white);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 7px 45px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+    margin: 5px;
+}
+
+.cust_update_btn:hover {
+    background-color: var(--primary-hover-dark-grey);
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: .35s;
+}
+
+.cust_update_btn:active {
+    transform: translateY(2px);
+    transition-duration: .35s;
+}
+
+.cust_update_btn:hover {
+    box-shadow: var(--primary-shadow-dark-Grey) 0 6px 12px;
+}
+
+.ion_icon {
+    position: absolute;
+    top: 16px;
+    left: 35%;
+}
+
+//  media Query Starts
+
+
+@media only screen and (max-width:1366px) {
+    .content {
+        height: 24vh;
+    }
+}
+
+@media only screen and (max-width:1280px) {
+    .content {
+        height: 25vh;
+    }
+}
+
+@media only screen and (max-width:768px) {
+
+    ion-modal::part(content) {
+        width: 50%;
+    }
+
+    .ion_icon {
+        left: 36%;
+    }
+}
+
+
+@media only screen and (max-width:425px) {
+
+    ion-modal::part(content) {
+        width: 90%;
+    }
+
+    .ion_icon {
+        left: 36%;
+    }
+}
+
+@media only screen and (max-width:375px) {
+
+    ion-modal::part(content) {
+        width: 90%;
+    }
+
+    .ion_icon {
+        left: 36%;
+    }
+}
+
+
+
+@media only screen and (max-width:320px) {
+
+    ion-modal::part(content) {
+        width: 90%;
+    }
+
+    .ion_icon {
+        left: 32%;
+    }
+}

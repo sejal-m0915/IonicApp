@@ -1,0 +1,193 @@
+.breadcrumb {
+    margin-bottom: 35px;
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: var(--primary-LightRed);
+    color: white;
+}
+
+.breadcrumb_txt {
+    font-size: 13px;
+    margin: 0 15px;
+    cursor: pointer;
+}
+
+.ionBg {
+    --background: #f4f7fa;
+
+}
+
+.custom-column {
+    padding: 15px;
+}
+
+.pt0 {
+    padding-top: 0;
+}
+
+.column-content {
+    // padding-top: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.lbl-txt {
+    font-size: 13px;
+    font-weight: 600;
+    padding-bottom: 7px;
+}
+
+.sub-text {
+    font-size: 13px;
+    font-weight: 600;
+
+}
+
+.split-lineImg {
+    margin-left: 14px;
+    height: 200px;
+}
+
+.card_head {
+    background-color: var(--titleBg);
+    padding: 15px;
+}
+
+.card_title {
+    color: var(--white);
+    font-size: 15px;
+}
+
+.card_content {
+    padding-top: 4px;
+    display: flex;
+}
+
+.transpt_inpt {
+    background-color: var(--white);
+    border: 1px solid transparent;
+    pointer-events: none;
+}
+
+.transpt_inpt:focus-visible {
+    border: 1px solid transparent;
+    outline: none;
+}
+
+.card_inpt_con {
+    flex-grow: 1;
+}
+
+.card_label_con {
+    width: 35%;
+}
+
+.display_card {
+    display: flex;
+    // gap: 65px;
+    flex-wrap: wrap;
+    column-gap: 2.33%;
+}
+
+.card_con_one {
+    flex-grow: 1;
+    margin-bottom: 1.2rem;
+}
+
+.card_label_con span {
+    color: var(--primary-Black);
+}
+
+.card_inpt_con input {
+    color: var(--primary-Black);
+}
+
+.card_inpt_con {
+    span {
+        color: #000;
+    }
+}
+
+.planCon {
+    display: flex;
+}
+
+.custom-dropdown {
+    width: 88%;
+    border: 1px solid #ccc;
+    height: 32px;
+    background: #fff;
+}
+
+.cust-lbl {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.editInputSave {
+    font-size: 14px;
+    padding: 0.6rem 1.8rem;
+    background: #2b3151;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.editInputBack {
+    font-size: 14px;
+    padding: 0.6rem 1.8rem;
+    background: var(--primary-Black);
+    color: var(--background);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.card_label_con span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0px;
+}
+
+.card_inpt_con input,
+.card_inpt_con span {
+
+    font-size: 0.8rem;
+    letter-spacing: 0px;
+}
+
+.disabled {
+    background-color: #f0f0f0;
+    color: #808080;
+    cursor: not-allowed;
+}
+
+.disabled-input {
+    background-color: #f0f0f0;
+    color: #808080;
+    cursor: not-allowed;
+}
+
+.wid_full {
+    width: -webkit-fill-available;
+}
+
+
+@media only screen and (max-width: 1024px) {
+    .cust_update_btn {
+        padding: 7px 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .card_con_one {
+        width: 100%;
+        margin-bottom: 1.2rem;
+    }
+
+    .cust_update_btn {
+        padding: 7px 10px;
+    }
+
+}

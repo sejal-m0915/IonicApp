@@ -1,0 +1,62 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">
+      <img src="../../../../assets/tuneLogo2.png" alt="">
+    </button>
+    <div class="logo-text" *ngIf="collapsed">
+      Hello, <br>
+      {{user_first_Name}}
+    </div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <span class="btnX"><i class="fa-solid fa-chevron-left"></i></span>
+    </button>
+  </div>
+
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item " *ngFor="let data of navData">
+      <a class="sidenav-nav-link " [routerLink]="[data.routerLink]" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}" [ngClass]="{ 'tooltip_': !collapsed }">
+        <i [class]="data.icon" class="sidenav-link-icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+        <div class="tool_con tooltip_">
+          <span class="tooltiptext">
+            {{data.label}}
+          </span>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link " [routerLink]="['/client']" [ngClass]="{ 'tooltip_': !collapsed }">
+        <i class="fa fa-key sidenav-link-icon"></i><span class="sidenav-link-text" *ngIf="collapsed">
+          Change Password</span>
+        <div class="tool_con changepass_tooltip">
+          <span class="tooltiptext">
+            Change Password
+          </span>
+        </div>
+      </a>
+    </li>
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link " (click)="logout()" [ngClass]="{ 'tooltip_': !collapsed }">
+        <i class="fa fa-arrow-right-from-bracket sidenav-link-icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">Logout</span>
+        <div class="tool_con tooltip_">
+          <span class="tooltiptext">
+            Logout
+          </span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="newClose-btn">
+  <button class="btn-close" (click)="toggleCollapse()">
+    <span class="btnX"><i class="fa-solid fa-chevron-left"></i></span>
+  </button>
+</div>
